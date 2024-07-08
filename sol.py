@@ -1,7 +1,8 @@
 
 from pwn import *
 
-io = process('sh')
-io.sendline('echo Hello World')
+io = process('./time')
+print(io.recvuntil(b'Enter your number: '))
+io.sendline(b'765690')
 result  = io.recvline()
 print(result)
