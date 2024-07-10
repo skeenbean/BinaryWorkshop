@@ -10,7 +10,7 @@ The team began to curate a Python Program to be able to generate the correct num
 Using the Ctype library, the python code was curated, using current time as a seed, with pwntools to link with the process. 
 
 The code is below:
-' code '
+`
 
 #!/usr/bin/env python3
 
@@ -43,5 +43,5 @@ io.sendline(b'%d' % w)  # Send the previously generated random number as input
 
 #Receive and print all remaining output from the 'time' process
 print(io.recvall())  # Output the response from the challenge process
-
+`
 
