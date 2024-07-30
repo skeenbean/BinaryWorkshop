@@ -28,13 +28,13 @@ Code used to exploit vulnerabilities in this challenge :
  
  from pwn import *
  
- # Start the process
+ #Start the process
  pw = process('babypwn')
 
- # Attach gdb debugger
+ #Attach gdb debugger
  gdb.attach(pw, '''continue''')
 
- # Interact with the process
+ #Interact with the process
  pw.Interactive()
 
 </code>
