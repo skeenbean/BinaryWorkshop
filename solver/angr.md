@@ -29,29 +29,29 @@ After the exploitation of the buffer overflow, having the memory address to retu
 - The **wrong address** is the address to avoid.
 
 ## Python Program
-` # Import Angr
+<code>  # Import Angr
 import angr
 
-# Establish the Angr Project
+#Establish the Angr Project
 target = angr.Project('r100')
 
-# Specify the desired address which means we have the correct input
+#Specify the desired address which means we have the correct input
 desired_adr = 0x00400849 
 
-# Specify the address which if it executes means we don't have the correct input
+#Specify the address which if it executes means we don't have the correct input
 wrong_adr = 0x0040085a
 
-# Establish the entry state
+#Establish the entry state
 entry_state = target.factory.entry_state(args=["./fairlight"])
 
-# Establish the simulation
+#Establish the simulation
 simulation = target.factory.simulation_manager(entry_state)
 
-# Start the simulation
+#Start the simulation
 simulation.explore(find = desired_adr, avoid = wrong_adr)
 
 solution = simulation.found[0].posix.dumps(0)
 print(solution)
-`
+</code>
 ## Conclusion
 While running through this challenge, we did run into certain errors due to how python was set up on our VM. Certain functions in the angr library were not able to run. To solve this, we created a virtual environment that let us use the angr library in all of its contents, in order to get the correct password. 
